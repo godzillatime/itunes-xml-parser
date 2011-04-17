@@ -1,7 +1,12 @@
 import time, os
-r = open('C:/users/Domas/Music/iTunes/backup/d.xml', 'r')
+import ConfigParser
+
+config = ConfigParser.ConfigParser()
+config.readfp(open('config'))
+
+r = open(config.get('Files', 'read'), 'r')
 #potential temp file
-w = open('C:/users/Domas/Music/iTunes/backup/that.xml', 'w')
+w = open(config.get('Files', 'write'), 'w')
 
 info = []
 
